@@ -1,3 +1,32 @@
+/* let  fecha;
+fecha = new Date ();
+document.getElementById('fecha').innerHTML = fecha; */
+
+
+//Hacemos una función para hacer las operaciones
+function textoFecha(fecha){
+  var numDiaSem = fecha.getDay(); //getDay() devuelve el dia de la semana.(0-6).
+//Creamos un Array para los nombres de los días    
+  var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+  var diaLetras = diasSemana[fecha.getDay()];   //El día de la semana en letras. getDay() devuelve el dia de la semana.(0-6).
+//Otro Array para los nombres de los meses    
+  var meses = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  var mesLetras = meses[fecha.getMonth()];  //El mes en letras
+  var diaMes = (fecha.getDate());   //getDate() devuelve el dia(1-31).
+  var anho = fecha.getFullYear();  //getFullYear() devuelve el año(4 dígitos).
+  var hora = fecha.getHours();    //getHours() devuelve la hora(0-23).
+  var min = fecha.getMinutes();   //getMinutes() devuelve los minutos(0-59).
+  if ((min >= 0) && (min < 10)) {    //Algoritmo para añadir un cero cuando el min tiene 1 cifra.
+    min = "0" + min;
+  }
+  var devolver = "Hoy es un gran día " + diaLetras+ ", " + diaMes + " de " + mesLetras + " de " + anho + " y son las " + hora + ":" + min + " horas.";
+  return devolver;
+}
+var fecha = new Date();  //Declaramos el objeto fecha actual
+/* document.write(textoFecha(fecha));  //Imprimir llamando a la función textoFecha() */
+document.getElementById('fecha').innerHTML = textoFecha(fecha);
+ 
+ 
  document.getElementById('para_escribir_y_que_se_vea_en_el_sitio_uso_id').innerHTML = "Aca esta el ejemplo de como puedo escribir y que salga visible en el sitio. Y si quiero que se vea en la consola solamente utilizó la siguiente linea de codigo.... console.log('Estoy escribiendo en la consola vease la linea 15 de este archivo.js'); . Tuve que poner comillas dobles al principio y al final para que se pueda ver y simples en el console.log, porque sino no me lo tomaba"
 // IMPORTANTE NO SE USAN MUCHO LOS prompt, ni los alert, solo para errores, y los confirm pero son todas funciones que te podes utilizar y saltan a una pantalla emergente de tu propia pagina
 
@@ -331,5 +360,368 @@ function total(precio3,precio4){
 }
 // para llamarlo y que aparezcan los dos en la pantalla tengo que poner otro <div> con cualquier nombre en el id y wuala
 document.getElementById('app2').innerHTML = nuevaManeraDeUsarLosTemplatesEnHtml;
+
+// otra clase numero 22 arreglos
+// los arreglos siempre se van a ver entre corchetes([12,32,35,21,21,15,12,23])
+
+// crear arreglo
+const arreglo = [1,2,56,12,3,4];
+console.log(arreglo);
+
+// arreglo de strings(método alternativo)
+
+const meses = new Array('Enero','Febrero','Marzo','Abril');
+console.log(meses);
+
+console.log(meses.length);
+
+// esta funcion es para saber si es un arreglo o no 
+console.log(Array.isArray(meses));
+
+// si quiero acceder a un lugar especifico del arreglo hago lo siguiente. Con esto me busca que esta en la posicion 0 y me lo imprime en la consola
+console.log(meses[0]);
+
+// para arreglar un elemento mas en el arreglo hago lo siguiente
+meses[4] = 'Mayo';
+console.log(meses);
+
+// otra manera de insertar un elemento al arreglo de esta manera siempre lo inserta al final sin necesidad de saber cuantos elementos hay es
+meses.push('esta es una manera de insertar mas rapida y sin saber cuantos elementos tiene');
+console.log(meses);
+//otra manera de agregar un elemento a el arreglo y que sea adelante es
+meses.unshift('Mes 0');
+console.log(meses);
+
+// Encontrar un elemento en un arreglo
+// por ejemplo quiero saber donde esta abril
+console.log(meses.indexOf('Abril')); // me va tirar su ubicacion
+
+// para eliminar un elemento en el arreglo y que sea el ultimo es 
+meses.pop();
+console.log(meses);
+// para eliminar un elemento en el arreglo y que sea el primero
+meses.shift();
+console.log(meses);
+// para eliminar un elemento en el arreglo y que sea alguno del medio, esta funcion toma dos parametros el primero es la posicion que queres quitar y el segundo cuantos desde ahi queres quitar generalmente siempre se quita de uno por vez
+meses.splice(2,1);
+console.log(meses);
+
+// para revertir el orden en el que estan se utiliza la siguiente forma
+meses.reverse();
+console.log(meses);
+
+// para concatenar dos arreglos
+let arreglo1 = [1,2,3],
+    arreglo2 = [9,8,7];
+
+console.log(arreglo1.concat(arreglo2));
+
+// para ordenar un arreglo con letras de la a A la Z
+let frutas = ['Manzana','Banana','Kiwui', 'Anana', 'zandia','Zapallo'];
+console.log(frutas);
+frutas.sort();
+console.log(frutas);
+
+// ordenar numeros 
+let arreglo3 = [1,5,3.21,3.65,3.52,45.5,45.6,100,40,90,78];
+// tengo que poner esta funcion si o si adentro del sort
+arreglo3.sort(function(x,y){
+  return x-y;
+})
+console.log(arreglo3);
+// que lo ordene de mayor a menor
+arreglo3.sort(function(a,b){
+  return b-a;
+})
+console.log(arreglo3);
+
+// para agregar un elemento en la costantante
+arreglo1[0] = 4;
+console.log(arreglo1);
+//  o tmbn podes hacer la de push
+ arreglo1.push(5);
+ console.log(arreglo1);
+
+//  clase nueva numero 26
+
+// creando un objeto siempre van con llaves ({})distinto a los arreglos que van con corchetes([]).  Puede ser una variable const o una variable let en eso es igual que los arreglos pueden ser let o const
+
+const persona ={
+    nombre:'Miguel',
+    apellido:'Martinez',
+    profesion: 'Diseñador grafico',
+    email: 'correo@correo.com',
+    edad: 45, 
+    musica: ['Pop','Cumbia','Tini banda'], //se puede colocar adentro del objeto un arreglo
+    // creo un objeto adentro de un objeto
+    hogar: {
+        ciudad: 'Buenos Aires,La Ferrere',
+        pais: 'Argentina'
+    },
+    // usualmente cuando una funcion esta adentro de un objeto es un metodo siempre cuando agregas o un arreglo o otro objeto o un metodo(funcion) van con (:)
+    nacimiento: function(){
+      return new Date().getFullYear() -this.edad;
+    }// new date()es la fecha actual y getfullyear()es el año actual descontandole la edad te da la fecha en que nacio-----BUENA FUNCION-----
+}
+console.log(persona);
+
+// para acceder a los elementos del objeto se accede por el nombre de lo que esta en antes de los dos PushSubscriptionOptions, asi
+console.log(persona.email);  //con esto te tira lo que dice el email en este caso
+
+console.log(persona.musica[2]);
+persona.musica.push('Alternativo');
+
+console.log(persona.hogar.ciudad);
+
+// otra manera de acceder a los elementos de un objeto
+console.log(persona['hogar']['pais']);
+
+// este hay una funcion que te tira la edad
+console.log(persona.nacimiento());
+
+// otro objeto para practicar
+ const persona2 ={
+   nombre:'Chegu',
+   apellido:'Evangelista',
+   profesion: 'Porrero',
+   email: 'correo@correo.com',
+   edad: 33, 
+   musica: ['Rock','Cumbia','Reegeton'], 
+   hogar: {
+       ciudad: 'Potrero de Garay',
+       pais: 'Argentina'
+   },
+  
+   nacimiento: function(){
+     return new Date().getFullYear() -this.edad;
+   }
+ }
+ console.log(persona2);
+ console.log(persona2.nacimiento());
+
+ // clase nueva arreglos de objetos
+
+  const autos = [
+   {modelo: 'Mustang', motor: 6.2},
+   {modelo: 'Camaro', motor: 6.1},
+   {modelo: 'Challenger', motor: 6.3}
+ ];
+ console.log(autos);
+ console.log(autos[1].modelo);
+
+// para recorrer estos arreglos con objeto se utiliza el for
+// un for es una interaccion que se repite hasta que se cumpla-----IMPORTANTE----
+
+// lo que me da esto la cantidad de objetos que tiene el arreglo, para poder escribir un for y que se pase por esos tres objetos
+console.log(autos.length);
+
+// ASI ES COMO SE IMPRIMEN LOS DATOS EN UN ARREGLO UTILIZANDO FOR
+
+// se inizializa siempre igual el for generalmente en todos los lenguajes se inicializa igual
+// for( let i= 0; )esto va siempre i es de index ademas eso significa que esta en la posicion actual
+// IMPORTANTE----CON EL i++ va incrementando de uno en uno hasta llegar a 3 ya que la posicion final es de 2 porque siempre empieza de 0, y el autos.length me indico que habia tres ELEMENTOS. POR ESO SE UTILIZA UN ARREGLO PARA SABER LA CANTIDAD DE OBJETOS Y PODER INTERACTUAR CON ELLO
+for(let i = 0; i < autos.length; i++ ) {
+  console.log(autos[i].modelo);
+
+  console.log(`${autos[i].modelo} ${autos[i].motor} `);
+} 
+// SE PUEDEN PONER VARIOS RESULTADOS QUE TE ARROJE
+//con el [i].modelo te va regresar los modelos de todos los autos asi si tenes mil autos te va a regresar todo lo que vos le pidas . MUY BUENA FUNCION LA for
+// O SE PUEDE HACER POR SEPARADO
+for(let i = 0; i < autos.length; i++ ) { 
+  console.log(`${autos[i].modelo} ${autos[i].motor} `);
+} 
+//en este es un literante y me va imprimir el modelo y el motor de cada auto que tengo de mi arreglo
+
+
+// Si se puede re asignar valores a un objeto por mas que tenga una const para acceder a ello hacemos 
+autos[0].modelo = 'Audi';
+console.log(autos);
+// Es decir tengo que modificar cada elemento por separado
+
+// Otra clase numero 28
+// Estas funcion se llama fuction declaration
+
+// primero se hace la function y despues se llama
+function saludar1 (){
+  console.log('Hola Miguel');
+}
+// llamandola aparece en mi consola de otra manera no aparecieria
+saludar1 ();
+
+function saludar (la_puedo_llamar_como_quiero){
+  console.log(`Hola ${la_puedo_llamar_como_quiero}`);
+}
+saludar ('Alma');
+saludar ("Pepito");
+
+// funcion para sumar
+function sumar1(a,b){
+  console.log(a+b);
+}
+sumar1(3,4);
+sumar1(10,50);
+
+// otra manera
+function sumar(a,b){
+  return a + b;
+}
+let suma;
+
+suma = sumar(1,2);
+console.log(suma);
+suma = sumar(5,15);
+console.log(suma);
+
+// OTRA CLASE 29
+// typeof es para que nos regrese el tipo de dato que es
+// esta es la forma vieja de usar if
+
+function saludar2 (nombre){
+  if(typeof nombre === "undefined"){nombre = 'Visitante'} // en caso que un visitante no de su nombre va aparecer undefined entonces yo tomo el underfined y cuando sea igual a esto le digo que le ponga lo que quiero
+  return `Hola ${nombre}`;
+}
+// Aca tira underlife porque no puso nada en el parametro para poder darle un nombre por mas que no ponga nada tenemos que poner un if(typeof) y especificarlo sino la forma mas rapida es crear la funcion y en el parametro poner igual a lo que quiero poner sino pone parametro como el ejemplo posterior de DESPEDIDA
+let saludo;
+saludo = saludar();
+console.log(saludo);
+
+saludo = saludar2('Carolina');
+console.log(saludo);
+
+saludo = saludar2();
+console.log(saludo);
+
+
+
+//la forma nueva y mas sencilla es 
+
+function despedida (nombre = 'Visitante'){
+  return `Chaoooo ${nombre}`;
+}
+
+let despido;
+despido = despedida();
+console.log(despido);
+
+despido = despedida('Tonga');
+console.log(despido);
+
+
+// Function Expression
+// otra manera de introducir function
+const sumamos_numeros = function(a =3,b = 5){
+  return a + b;
+}
+console.log(sumamos_numeros(1,19));
+// en este que no le puse parametro ninguno va tomar el valor que le puse arriba es decir va devolver cuando no haya parametros nada
+console.log(sumamos_numeros());
+
+const hablameDeTi = function(nombre = 'Otra vez vos',edad = 20, profesion = 'mecanico'){
+  return `Hola, tienes ${edad}, profesion ${profesion} y te llamas ${nombre}`;
+}
+console.log(hablameDeTi('Pedro'));
+
+// clase 30 ejemplo de IIFE
+// son funciones que se decalran y se invocan al mismo tiempo. Estas funciones se invocan con (function{return...})(); asi es como se invocan y funcionan
+(function(){
+  console.log('Creando un IIFE');
+
+})();
+
+// Si utilizas jquery la sintasis es similar
+/* (function(){
+  console.log('Creando un IIFE');
+
+})(Jquery); */
+
+(function(tecnologia1){
+  console.log(`Aprendiendo ${tecnologia1}`);
+
+})('Javascript');
+
+// Metodos de propiedades
+// Cuando una funcion se pone dentro de un objeto
+
+const musica = {
+  reproducir: function(id){
+    console.log(`Reproduciendo musica id ${id}`);
+  },
+  pausar: function(){
+    console.log(`Pause a la musica`);
+  }
+}
+musica.reproducir(30);
+musica.pausar();
+
+// los metodos tmbn pueden guardarse / crearse por afuera del objeto con el nombre del objeto + el (punto)creo otro elemento en el objeto y luego le doy un igual y puedo poner una funcion
+musica.borrar = function(id){
+  console.log(`Borrando la cancion con el id ${id}`);
+}
+musica.borrar(2);
+
+// otra clase 31
+function obtenerClientes (){
+  console.log('Descargando...');
+  // con esta funcion voy hacer que aparezca despues de tres segundos el cartel completo y uso tmbb la propiedad de las funciones para llamarla en el momento por eso va los 3000 ahi
+  setTimeout(function(){
+    console.log('Completo esta en la clase 31')
+  }, 3000);
+}
+console.log(obtenerClientes());
+
+// para probar las funciones que no existen utilizo el try
+// Con esto no impido que no se me ejecuten las otras
+
+// Try es cuando existe y catch es cuando no existe marca el error
+try {
+    probando_funcion_try();
+} catch (error) {
+  console.log(error);
+}finally {
+  console.log('No le importa, ejecuta de todos modos');
+}
+
+// En vez de que no me deje hacer mas nada  solamente la utilizo cuando no se para que sirve o si no esta funcionando la funcion.
+// Es una manera de probar los errores con Try catch
+
+// otra clase 32
+// existe un objeto llamado Date()
+const diaHoy = new Date();
+
+let valorObtenido;
+// mes son metodos de date ()
+valorObtenido = diaHoy.getMonth();
+console.log(valorObtenido);
+
+// dia
+valorObtenido = diaHoy.getDate();
+console.log(valorObtenido);
+
+// obtener el año
+valorObtenido = diaHoy.getFullYear();
+console.log(valorObtenido);
+
+// obtener minutos
+valorObtenido =diaHoy.getMinutes();
+console.log(valorObtenido);
+// obtener hora
+valorObtenido = diaHoy.getHours();
+console.log(valorObtenido);
+
+// milisegundos desde 1970
+/* valorObtenido = diaHoy.getUTCMilliseconds */
+// get es para obtener la informacion y set para modificarla
+valorObtenido = diaHoy.setFullYear(2011);
+valorObtenido = diaHoy.getUTCFullYear();
+console.log(valorObtenido);
+
+
+/*let meses1 = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
+ let mesLetras = meses1[fecha.getMonth()];
+console.log(mesLetras); */
+
+ 
 
 
