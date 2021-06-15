@@ -3,7 +3,7 @@ fecha = new Date ();
 document.getElementById('fecha').innerHTML = fecha; */
 
 
-//Hacemos una función para hacer las operaciones
+//Hacemos una función para hacer las operaciones se puede usar var (forma anterior) let(forma actual)
 function textoFecha(fecha){
   var numDiaSem = fecha.getDay(); //getDay() devuelve el dia de la semana.(0-6).
 //Creamos un Array para los nombres de los días    
@@ -722,6 +722,487 @@ console.log(valorObtenido);
  let mesLetras = meses1[fecha.getMonth()];
 console.log(mesLetras); */
 
+// otra clase 33; esta son de los controladores if if else else
+const edad = 19;
+ if(edad >= 18){ //podes poner cualquier operador en el parametro el == o el === el estricto o el no !=
+  console.log('Si puedes entrar al sitio');  
+} else {
+  console.log('No puedes entrar al sitio');
+}
+
+// comprobar que una variable tiene un valor
+let puntaje1;
+if(typeof puntaje1 != 'undefined'){
+  console.log(`El puntaje fue de ${puntaje1}`);
+} else{
+  console.log(`No hay puntaje`);
+}
+
+let efectivo = 500;
+let toalCarrito = 800;
+
+if(efectivo > toalCarrito){
+  console.log('Pago Correcto');
+} else{
+  console.log('Fondos Insuficientes');
+}
+
+// else if
+let hora1 = 25;
+if(hora1 > 0 && hora1 <= 11){
+  console.log('Buenos Dias');
+} else if(hora1 > 11 && hora1 <=18){
+  console.log('Buenas Tardes');
+} else if (hora1 > 18 && hora1 < 24){
+  console.log('Buenas Noches');
+} else {
+  console.log('Hora no válida');
+}
+
+// operador ||
+let efectivo2 = 300,
+    credito = 300,
+    disponible = efectivo2 + credito,
+    toalCarrito1 = 500;
+
+if(toalCarrito1 < efectivo2 || toalCarrito1 < credito){
+  console.log('Puedo Pagar');
+}else if(toalCarrito1 < disponible){
+  console.log('Puedo garpar');
+} 
+else{
+  console.log('No puedo pagar');
+}
+
+// ternario de if else if -----IMPORTANTE-----
+const logueado = true;
+
+ console.log( logueado === true ? 'Si se logueo' : 'No se logueo'); //? es el finalizado del if y si se cumple; y el : es el else si no se cumple
+
+
+//  otra clase SWITCH en los parentesis va la condicion que quieras revisar
+
+// switch se utiliza cuando hay muchas condiciones de una misma variable
+const  metodoPago = 'bitcoins',
+       metodoPago1 = 'cheque',
+       metodoPago2 = 'tarjeta'
+;
+// siempre va a saltar con el metodo que pagaste y la condicion que pusiste en este caso la condicion es el metodoPago y va ver con cual metodo pagaste y lo va a tirar
+// La estructura siempre es igual con un break y si no paga con alguno de esos metodos no aparece nada salvo que quiera que aparezca y para eso pongo un default 
+switch(metodoPago){
+  case 'efectivo':
+      console.log(`El usuario pago con ${metodoPago}`);
+      break;
+  case 'cheque':
+      console.log(`El usuario pago con ${metodoPago1}`);
+      break;
+  case 'tarjeta':
+        console.log(`El usuario pago con ${metodoPago2}`);
+        break;
+  default:
+           console.log('metodo de pago no soportado'); //con esto va saltar si no esta en alguno de estos metodos
+}
+switch(metodoPago1){
+  case 'efectivo':
+      console.log(`El usuario pago con ${metodoPago}`);
+      break;
+  case 'cheque':
+      console.log(`El usuario pago con ${metodoPago1}`);
+      break;
+  case 'tarjeta':
+        console.log(`El usuario pago con ${metodoPago2}`);
+        break;
+}
+switch(metodoPago2){
+  case 'efectivo':
+      console.log(`El usuario pago con ${metodoPago}`);
+      break;
+  case 'cheque':
+      console.log(`El usuario pago con ${metodoPago1}`);
+      break;
+  case 'tarjeta':
+        console.log(`El usuario pago con ${metodoPago2}`);
+        break;
+}
+
+// Practicando con SWITCH  
+
+const fecha1 = new Date();
+ console.log(fecha1.getMonth()); //siempre imprime un mes pero en numeros
+
+//  con    SWITCH para que aparezcan en vez de los numeros los meses que quiero distinto que hacer un new Array
+let mes1;
+switch (new Date().getMonth()){
+      
+      case 0:
+        mes1 = 'Enero';
+        break;
+      case 1:
+        mes1 = 'Febrero';
+        break;
+      case 2:
+        mes1 = 'Marzo';
+        break;
+      case 3:
+        mes1 = 'Abril';
+        break;
+      case 4:
+        mes1 = 'Mayo';
+        break;
+      case 5:
+        mes1 = 'Junio';
+        break;
+      case 6:
+        mes1 = 'Julio';
+        break;
+      case 7:
+        mes1 = 'Agosto';
+        break;
+      case 8:
+        mes1 = 'Septiembre';
+        break;
+      case 9:
+        mes1 = 'Octubre';
+        break;
+      case 10:
+        mes1 = 'Noviembre';
+        break;
+      case 11:
+        mes1 = 'Diciembre';
+        break;
+
+}
+// SWITCH  te sirve para revisar multiples condiciones mas ordenadas
+console.log(`Este es el mes con la funcion swtich ${mes1}`);
+
+// otra Chase 37
+// un loop es un  codigo que se repite una y otra vez
+// For Loop
+// la i es la iniciacion i por index o indice y arranca desde ahi despues va la condicion cuantas veces quiero que corra y despues cuanto aumenta
+ for(let i = 0;i < 10; i++){
+   if(i == 5){
+     console.log(`Voy en el 5 tmbn puedo poner if`);
+     continue;
+   }
+   console.log(`Numeros: ${i} asi se corre un for loop `);
+ } 
+
+ for(let i = 1;i < 10; i++){
+  if(i == 5){
+    console.log(`Voy en el 5 tmbn puedo poner if`);
+    break; // detiene la ejecucion llega hasta 5
+  }
+  console.log(`Numeros: ${i} asi se corre un for loop `);
+} 
+
+// otra manera de usar for loop con modulo 
+// el modulo (%) lo que hace es si tiene un residuo que no es entero no va hacer nada
+for(let i = 0;i < 10; i++){
+  if(i % 2 == 0){ // en este caso queremos los que se dividen por dos y dan sin coma es decir no tienen parte residual -----IMPORTANTE-----
+    console.log(`El numero  ${i} es par`);
+    
+  } else{
+    console.log(`El numero ${i} es impar`);
+  }
+  
+} 
+// ESTA MANERA ES MUY COMUN QUE UN ARREGLO LO RECORRAS CON FOR LOOP ----Importante --------
+// otra manera de usar el FOR LOOP  
+const arregloProductos = ['Camisa', 'Boletos','Guitarra','Disco'];
+console.log(arregloProductos.length);
+// le puso esa condicion porque quiero que frene en y recorra todo el arreglo
+for(let i = 0; i < arregloProductos.length; i++){
+  console.log(`Tu producto ${arregloProductos} fue agregado`);
+}
+
+// clase While y While Do numero38
+// Otra clase para ver el while tambien se utiliza como el for para pasar por un arreglo[] o repetir distintas acciones
+
+// se inicializa arafue
+let inicializador = 0;
+while(inicializador < 10){
+    /* console.log(`el incremento de un while ${inicializador}`); */
+    if( inicializador == 5){
+      console.log('tmbn se puede usar un if adentro del while 5, para que solo vaya el texto y no el incremento tengo que cortarlo con un continue');
+      inicializador++;
+      continue;
+      
+    }
+    console.log(`el incremento de un while ${inicializador}`);
+    inicializador++;// aca va si o si el incremetno porque si no va estar siempre en cero y no va a avanzar 
+    // ----------IMPORTANTE CUANDO SE CREA UN WHILE ES NECESARIO PONERLE LA OPERACION DE IR SUMANDO Y LUEGO GUARDAR PORQUE SINO SE QUEDA EN UN LOOP INFINITO----------   
+}
+// -----IMPORTANTE ----- EL WHILE ES MAS GOMA SI NO LO CERRAS CON UN AUMENTO TENES QUE CERRAR LA PAGINA
+
+// Otro ejemeplo
+const musica1 = ['Cancion1','Cancion2','Cancion3'];
+console.log(musica1.length);
+let inicializacionPorFueraDeElWhile = 0;
+while(inicializacionPorFueraDeElWhile< musica1.length){
+  console.log(`Reproduciendo la cancion: ${musica1[inicializacionPorFueraDeElWhile]}`);
+  inicializacionPorFueraDeElWhile++;
+}
+
+
+// El Do While su caracteristica principal es que se va recorrer una vez por lo menos si la condicion se cumpla o no -------- IMPORTANTE -------
+// DO WHILE
+// esto va entrar una vez al do y despues va checar con la condicion while
+let indice1 = 1000;
+do{
+  console.log(`numero: ${indice1}`);
+  indice1++;
+
+}while(indice1<10); //condicion afuera del do y lo que se repita o se incremente o pase por los distintos elementos va adentor
+
+// Recorriendo un arreglo con forEach
+const pendientes = ['Tarea', 'Almorzar', 'Ejercicio Fisico', 'Aprendiendo JavaScript'];
+console.log(pendientes[3]);
+
+// For
+/* for(let i = 0; i < pendientes[i];i++){
+  console.log(pendientes[i]);
+} */
+
+// forEach
+
+// forEach con este forEach recorro igual que un for en el parametro de la funcion le pongo el singular de la variable a la que quiero hayar o le podria poner cualquier otro nombre. y asi es su sintaxis. Tambien le podes pasar mas parametros como el parametro ya definido del forEach que es el index que es igual a la ubicacion del mismo
+pendientes.forEach(function(pendiente,index){
+  console.log(`ubicacion de cada uno ${index} : ${pendiente}`)
+});
+// ESta sintaxis lo hace muy limpio y es el que se utiliza en la mayoria de los casos
+
+// Map para recorrer un arreglo de objeto
+// Este lo almacena y extrae informacion a diferencia del for y del forEach
+const carrito2 = [
+       {id: 1, producto: 'Libro'},
+       {id: 2, producto: 'Camisa'},
+       {id: 3, producto: 'Guitarra'},
+       {id: 4, producto: 'Disco'}
+];
+
+console.log(carrito2);
+// para crear este mapeo hay que crear una constante
+const nombreProducto = carrito2.map(function(carrito2){
+  return carrito2.producto;
+}) //con esto estoy diciendo que en de ese objeto me muestre todos los nombres ----IMPORTANTE -----
+console.log(nombreProducto);
+
+// Un Objeto y el anterior es un arreglo
+const automovil = {
+       modelo: 'Camaro',
+       motor: 6.3,
+       anio: 1969,
+       marca: 'Chevrolet'
+}
+console.log(automovil);
+// con For
+// in es una palabra reservada de javascript
+// lo que esta en auto son las caracteristicas de este objeto y el resto es lo que le pusiste es decir que auto devuelve modelo,anio y marca y lo posterior de in devuelve que marca, modelo, anio es ----IMPORTANTE-----
+ for( let auto in automovil){
+  console.log(`${auto} : ${automovil[auto]}`);
+} 
+
+// Clase 40
+const ciudades = ['Londres','New York','Madrid', 'Paris'];
+const ordenes = new Set([123,231, 131, 102]);
+const datos = new Map();
+datos.set('nombre', 'juan');
+datos.set('profesion', 'desarrollador web');
+console.log(ciudades);
+console.log(ordenes);
+console.log(datos);
+
+// Entries iterador regresa valor y llaves es decir posicioon
+// entries a las ciudades
+// lo que hace este entries es mas rapido y mas legible de leer para revisar un arreglo 
+// Practicarlo
+for(let entrada of ciudades.entries()){
+  console.log(entrada);
+}
+
+// Entries para las ordenes 
+for(let entrada of ordenes.entries()){
+  console.log(entrada);
+}
+
+// Entries para el map
+for(let entradaMap of datos.entries()){
+  console.log(entradaMap);
+}
+
+// Values iterador solo regresa valor
+// values a las ciudades
+// por defecto si no le pones nada en un arreglo va a correr values cuando utilizo for
+for(let entrada of ciudades){ // no le puse nada porque para los arreglos por defecto es values
+  console.log(entrada);
+}
+
+// Values para las ordenes 
+for(let entrada of ordenes.values()){
+  console.log(entrada);
+}
+
+// Values para el map
+for(let entradaMap of datos.values()){
+  console.log(entradaMap);
+}
+
+// Keys Iterador
+// keys solo arroja las posiciones es decir las llaves
+for(let entrada of ciudades.keys()){
+  console.log(entrada);
+}
+
+// keys para las ordenes 
+for(let entrada of ordenes.keys()){
+  console.log(entrada);
+}
+
+// keys para el map
+for(let entradaMap of datos.keys()){
+  console.log(entradaMap);
+}
+
+// Iteradores para strings
+const mensaje1 ='Aprendiendo Javascript';
+// forma vieja de usar
+for(let i = 0; i < mensaje1.length;
+  i++){
+    console.log(mensaje1[i]);
+  }
+
+// forma nueva de usar el iterador para strings
+for(let letra of mensaje1){
+  console.log(letra);
+}
+
+// para obtener todos los enlaces
+const enlaces = document.getElementsByTagName('a');
+
+for(let enlace of enlaces){
+  console.log(enlace);
+}
+// si solo quiero imprimir los enlaces van con .href
+ for(let enlace of enlaces){
+   console.log(enlace.href);
+ }
+
+ // Otra clase esta es teorica
+//  Window Object
+
+//  es parte de todo en la consola es mas se puede poner window.console.log y te va agregar lo mismo.
+// prompt, alert son parte de window Object por eso se puede de usar 
+// Otro que tambien esta es el confirm
+
+
+
+// DALE CORRER A ESTAS LINEAS DE CODIGO PARA VER QUE PASA ----IMPORTANTE------
+/* if(confirm('Eliminar')){
+  console.log('Eliminado');
+} else{
+  console.log('Nada paso!');
+} */
+
+// Esto tambien se encuentra en window Object y son los metodos altura y anchura para saber cuanto mide el navegador cuando lo achicamos o lo agrandamos
+
+let alutura1,
+    anchura;
+
+    alutura1 = window.outerHeight;
+    anchura = window.outerWidth;
+
+console.log(alutura1);
+console.log(anchura);
+
+let aluturaDeNavegadorSolo,
+    anchuraDeNavegadorSolo;
+
+    aluturaDeNavegadorSolo = window.innerHeight;
+    anchuraDeNavegadorSolo = window.innerWidth;
+
+console.log(aluturaDeNavegadorSolo);
+console.log(anchuraDeNavegadorSolo);
+
+// Window Object
+// Ubicacion
+let ubicacion1;
+
+ubicacion1 = window.location
+
+console.log(ubicacion1);
+let ubicacion2;
+
+ubicacion2 = window.location.host
+
+console.log(ubicacion2);
+
+// ejecutar esta linea para saber lo que pasa
+// IMPORTANTE SIEMPRE LE DOY EL PUNTO PARA HAYAR LO QUE HAY ADENTRO DE LAS LLAVES{}, QUE SON OBJETOS SIEMPRE
+// REDIRECCIONAR POR MEDIO DE JS
+ /* let ubicacion3;
+// PARA MANDAR A ALGUIEN A OTRA PAGINA
+ubicacion3 = window.location.search;
+window.location.href = 'http://twiter.com'
+console.log(ubicacion3); */
+
+
+// TMBN ESTA EL HISTORY PARA Window
+// QUE TE PERMITE VER LO QUE VISTE ANTES
+// Esto te permite ver lo que viste antes -----esta bueno para mostrar lo que le gusta a la gente-------
+/* window.history.go(-2); */
+
+// Navigator
+// Son importantes 
+let ubicacion3 = window.navigator; //info de navegador
+let ubicacion4 = window.navigator.appName,
+    ubicacion5 = window.navigator.appVersion,
+    ubicacion6 = window.navigator.userAgent;
+// LA MAS IMPORTANTE ES 
+let ubicacion7 = window.navigator.language;
  
+console.log(ubicacion3);
+console.log(ubicacion4);
+console.log(ubicacion5);
+console.log(ubicacion6);
+console.log(ubicacion7);
+
+// clase 42 ultima de fundamentos
+// Scope es IMPORTANTE
+// es la visibilidad que tiene un valor en js dentro de una funcion o for o un block
+
+// VARIALBES GLOBALES
+var a = 'a';
+let b = 'b';
+const c = 'c';
+console.log('GLOBALES: '+a,b,c);
+
+// VARIABLES SOLO DENTRO DE LA FUNCION
+function funcionScope(){
+  // var a = 'A'; // esta variable la va a rescribir por eso no lo envio a la consola
+  let b = 'B';
+  const c = 'C';
+  console.log('VARIABLES DENTRO DE LA FUNCION: '+ a,b,c);
+}
+// llamo a la funcion sino no me lo imprime en la consola
+// funcionScope(Scope dentro de un bloque es decir dentro de las llaves de una funcion
+// hay que tener cuidado porque se pueden reescribir y eso no lo queremos ----IMPORRTE ------
+ /* if(true){
+  var a = 'aa'; //la que se va a reescribir va ser la variable var siempre las otras dos no
+  let b = 'bc';
+  const c = 'cc';
+  console.log('GLOBALES: '+a,b,c);
+} */
+// --------- IMPORTTANTE -----------
+// LA RAZON PARA NO USAR VAR ES CUANDO ESTAS EN UN BLOQUE Y QUIERO QUE SOLO LAS VARIABLES SEAN DE ESE BLOQUE NO TENGO QUE UTILIZAR VAR SINO LET Y CONST
 
 
+// otra clase
+// DOM es document Object model
+// root=(html) se lo conoce como node
+// javascript te permite navegar dentro de todo el dom
+
+// Ejercicio re simple de iteracion de juan
+/* let compras = prompt('cuantos productos compraste?'); 
+ let ventas = prompt('cauntos productos vendiste?'); 
+ let vendidos = compras - ventas;
+console.log(`Los productos vendidos ${vendidos}`); */
